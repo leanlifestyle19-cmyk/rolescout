@@ -1,3 +1,40 @@
+# RoleScout SG
+
+Personal job-matching PWA. Scores Singapore public-sector roles against a
+transformation / BPR / change-management / Lean-Six-Sigma profile at
+SAD / Head / Deputy Director / Director level.
+
+## What it does
+- **Matches** — auto-fetches the Careers@Gov feed (via OpenGovSG's public
+  GitHub mirror, CORS-enabled, refreshed several times daily), filters to
+  target seniority, scores % match, flags NEW roles since your last visit,
+  shows closing dates.
+- **Scan JD** — hospital clusters (SingHealth / NHG / NUHS), MOHH, A*STAR
+  and most stat boards have no public feed, so paste any JD text and it is
+  scored against the same profile model (match %, hit/missing competencies,
+  level detection).
+- **Sources** — directory of the portals worth checking weekly, with
+  pre-built searches.
+- **Tracker** — save roles (from Matches or Scan), track status
+  Interested → Applied → Interview → Offer, stored locally in IndexedDB.
+
+## Deploy (GitHub Pages)
+1. New repo → upload `index.html`, `sw.js`, `manifest.json`, `icon-192.png`, `README.md`.
+2. Settings → Pages → deploy from `main` branch root.
+3. Open the Pages URL on your phone → Add to Home Screen.
+
+## Deploy discipline (from master AAR)
+- Bump `CACHE` in `sw.js` on **every** `index.html` change (date form: `rolescout-YYYYMMDD`).
+- Upload `sw.js` and `index.html` together.
+- If the feed URL/host ever changes, update the `BYPASS` list in `sw.js` in the same commit.
+
+## Honest limits
+- Only Careers@Gov can be auto-fetched from the browser (public CORS mirror).
+  Cluster/A*STAR portals are SuccessFactors/Workday with no public API — use
+  Scan JD for those.
+- Match % is a keyword heuristic to rank and triage, not a verdict. Read the JD.
+
+
 # RoleScout cluster scraper
 
 Weekly GitHub Action that scrapes SingHealth's careers portal (Management & Admin
@@ -23,3 +60,4 @@ JSON from raw.githubusercontent.com — same pattern OpenGovSG uses for Careers@
 - To add NHG/NUHS later: append entries to SOURCES with their category URLs
   (same SuccessFactors platform, same URL shape).
 # rolescout
+
