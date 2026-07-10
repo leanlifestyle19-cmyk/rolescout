@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14181f">
+<title>RoleScout SG</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<style>
+:root{
+  --ink:#14181f; --paper:#f6f7f9; --card:#ffffff; --line:#e5e8ec;
+  --tx:#1f2733; --mut:#667085; --acc:#2f6f5e; --accw:#e7f0ed;
+  --warn:#a8501d; --warnw:#fbeee2; --new:#2f6f5e;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--paper);color:var(--tx);display:flex;flex-direction:column;overflow:hidden}
+a{color:var(--acc);text-decoration:none}
+header{background:var(--ink);color:#eef1f4;padding:14px 16px 10px;flex-shrink:0;
+  padding-top:calc(14px + env(safe-area-inset-top))}
+header h1{margin:0;font-size:17px;font-weight:700;letter-spacing:.3px}
+header .sub{font-size:11.5px;color:#a9b2bd;margin-top:2px}
+main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 14px 20px}
+nav{flex-shrink:0;display:flex;background:var(--card);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;border:0;background:none;font:inherit;font-size:11px;color:var(--mut);
+  padding:8px 2px 9px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button.on{color:var(--acc);font-weight:700}
+nav button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tab{display:none}.tab.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+h2{font-size:13px;margin:14px 2px 8px;color:var(--acc);text-transform:uppercase;letter-spacing:.6px}
+h2:first-child{margin-top:2px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font:inherit;font-size:13.5px;font-weight:600;border:1px solid var(--acc);background:var(--acc);
+  color:#fff;padding:9px 14px;border-radius:9px;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--acc)}
+.btn:disabled{opacity:.55}
+.btn.sm{padding:6px 10px;font-size:12px;border-radius:7px}
+input[type=search],textarea,select,input[type=text]{font:inherit;font-size:14px;border:1px solid var(--line);
+  border-radius:9px;padding:9px 10px;background:#fff;color:var(--tx);width:100%}
+textarea{min-height:150px;resize:vertical}
+.chip{font:inherit;font-size:12px;border:1px solid var(--line);background:#fff;color:var(--tx);
+  padding:6px 11px;border-radius:999px;cursor:pointer;user-select:none}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.meta{font-size:11.5px;color:var(--mut)}
+.pct{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums}
+.meter{height:5px;border-radius:3px;background:var(--accw);overflow:hidden;flex:1;min-width:60px}
+.meter i{display:block;height:100%;background:var(--acc)}
+.jobtop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.jobtitle{font-weight:700;font-size:14.5px;line-height:1.3}
+.badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.5px;color:#fff;
+  background:var(--new);padding:2px 6px;border-radius:5px;vertical-align:middle;margin-left:6px}
+.lvl{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;
+  background:var(--accw);color:var(--acc);margin:6px 6px 0 0}
+.close{font-size:12px;font-variant-numeric:tabular-nums;color:var(--mut);margin-top:5px}
+.close.soon{color:var(--warn);font-weight:700}
+.fitchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.fitchips span{font-size:10.5px;color:#3a4a55;background:#eef1f4;border-radius:5px;padding:3px 7px}
+.fitchips span.miss{background:var(--warnw);color:var(--warn)}
+.empty{padding:26px 12px;text-align:center;color:var(--mut);font-size:13px;border:1px dashed var(--line);border-radius:12px;background:var(--card)}
+.banner{background:var(--warnw);border:1px solid #f0d7c2;color:#6f3813;font-size:12.5px;border-radius:10px;padding:9px 12px;margin-bottom:10px}
+.srcrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line)}
+.srcrow:last-child{border-bottom:0}
+.srcname{font-weight:700;font-size:13.5px}
+.srcnote{font-size:11.5px;color:var(--mut);margin-top:1px}
+.statussel{width:auto;font-size:12px;padding:5px 8px}
+.trk-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.scorebox{background:var(--accw);border-radius:10px;padding:12px;margin-top:10px}
+.filters{position:sticky;top:-12px;z-index:3;background:var(--paper);padding:6px 0 8px;margin:-6px 0 6px}
+.gap{height:6px}
+label.f{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.4px;display:block;margin:8px 2px 4px}
+</style>
+</head>
+<body>
+<header>
+  <h1>RoleScout SG</h1>
+  <div class="sub" id="hdrsub">Roles matched to your transformation &amp; change profile</div>
+</header>
+
+<main id="main">
+
+  <!-- MATCHES -->
+  <section class="tab on" id="tab-matches">
+    <div class="filters">
+      <input type="search" id="q" placeholder="Search role or agency…">
+      <div class="gap"></div>
+      <div class="row" id="lvlchips"></div>
+      <div class="gap"></div>
+      <div class="row">
+        <span class="meta">Min match</span>
+        <input type="range" id="minpct" min="0" max="90" step="5" value="40" style="flex:1">
+        <span class="pct" id="minpctv" style="font-size:13px">40%</span>
+        <button class="btn sm ghost" id="refresh">Refresh</button>
+      </div>
+      <div class="meta" id="feedmeta" style="margin-top:6px">Loading Careers@Gov feed…</div>
+    </div>
+    <div id="banner"></div>
+    <div id="list"></div>
+  </section>
+
+  <!-- SCAN JD -->
+  <section class="tab" id="tab-scan">
+    <h2>Score any job description</h2>
+    <div class="card">
+      <div class="meta" style="margin-bottom:8px">Hospital clusters (SingHealth, NHG, NUHS), A*STAR, MOHH and most stat boards don't offer public feeds — so paste the job text from any portal and RoleScout scores it against your profile.</div>
+      <input type="text" id="sc-title" placeholder="Job title (e.g. Deputy Director, Transformation Office)">
+      <div class="gap"></div>
+      <input type="text" id="sc-org" placeholder="Organisation (e.g. SingHealth)">
+      <div class="gap"></div>
+      <textarea id="sc-text" placeholder="Paste the full job description here…"></textarea>
+      <div class="gap"></div>
+      <div class="row">
+        <button class="btn" id="sc-go">Score match</button>
+        <button class="btn ghost" id="sc-clear">Clear</button>
+      </div>
+      <div id="sc-out"></div>
+    </div>
+    <h2>Your profile keywords</h2>
+    <div class="card meta" id="profilebox" style="line-height:1.7"></div>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="tab" id="tab-sources">
+    <h2>Where your roles live</h2>
+    <div class="card meta" style="line-height:1.5">Careers@Gov is auto-scanned in Matches. The portals below can't be auto-fetched (no public feed) — open them with the pre-built searches, then paste interesting JDs into Scan.</div>
+    <div class="card" id="srclist"></div>
+    <h2>Search terms that work for you</h2>
+    <div class="card meta" style="line-height:1.7">transformation office · organisational development · operational excellence · process improvement · business process · change management · service transformation · quality improvement · capability development · corporate planning</div>
+  </section>
+
+  <!-- TRACKER -->
+  <section class="tab" id="tab-tracker">
+    <h2>Saved &amp; applied roles</h2>
+    <div id="trklist"></div>
+  </section>
+
+</main>
+
+<nav>
+  <button class="on" data-tab="matches"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Matches</button>
+  <button data-tab="scan"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 011-1h2M17 4h2a1 1 0 011 1v2M20 17v2a1 1 0 01-1 1h-2M7 20H5a1 1 0 01-1-1v-2"/><path d="M7 12h10"/></svg>Scan JD</button>
+  <button data-tab="sources"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></svg>Sources</button>
+  <button data-tab="tracker"><svg viewBox="0 0 24 24"><path d="M9 5h6M9 5a2 2 0 00-2 2v12l5-3 5 3V7a2 2 0 00-2-2"/></svg>Tracker</button>
+</nav>
+
+<script>
+// M3: register SW first, before any other code.
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');
+
+// M6: local date helper — never toISOString.
+function localDateStr(d = new Date()){
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function today(){ return localDateStr(new Date()); }
+
+/* ================= PROFILE SCORING MODEL ================= */
+const CORE = {
+ "Org transformation":["organisational transformation","organizational transformation","enterprise transformation","transformation office","transformation unit","business transformation","workforce transformation"],
+ "BPR / process improvement":["business process","process reengineering","process re-engineering","process improvement","process redesign"," bpr","process optimis","process optimiz","streamlin"],
+ "Change management":["change management","change adoption","adkar","prosci","kotter","organisational change","organizational change","managing change"],
+ "Lean Six Sigma / op excellence":["lean six sigma","six sigma","operational excellence","continuous improvement","kaizen","quality improvement"],
+ "Org development / design":["organisational development","organizational development","organisational design","organizational design","organisational review","restructuring","organisational effectiveness","operating model"],
+ "Digital transformation":["digital transformation","digitalisation","digitalization","process automation","robotic process","digital adoption"],
+ "Service / design thinking":["service design","design thinking","human-centred","human-centered","journey map","patient experience"],
+ "Capability / competency":["capability development","capability building","competency framework","competency development","workforce development","skills framework","communities of practice","change champion"]
+};
+const SUPP = {
+ "Stakeholder / facilitation":["stakeholder engagement","stakeholder management","facilitation","facilitate workshop","engagement strategy"],
+ "Strategic planning":["strategic planning","strategy development","corporate planning","strategic development"],
+ "Data / performance":["data-driven","data analytics","performance management","business intelligence","dashboard","kpi"],
+ "Risk / governance":["enterprise risk","risk management","internal audit","governance"],
+ "Systems thinking / RCA":["systems thinking","root cause","problem-solving","diagnostics"],
+ "Project / programme":["project management","programme management","program management","cross-functional"]
+};
+const TITLE_DOMAIN=["transformation","organisational development","organizational development","change management","operational excellence","continuous improvement","service design","process improvement","process re","business process","operating model","organisational","organizational","capability development","quality improvement"];
+const TITLE_ADJACENT=["strategy","strategic","planning","digital","innovation","policy","corporate development","performance","enterprise","process","capability","review"];
+const TITLE_TECH=["developer","full stack","software engineer","software developer"," devops","data engineer","cybersecurity","information officer","network","infrastructure engineer","penetration"," sre"];
+const TARGET=["Senior Assistant Director","Head","Deputy Director","Director","Chief"];
+
+function detectLevel(title){
+  const t=" "+String(title).toLowerCase()+" ";
+  const scrub=t.replace(/senior assistant director/g,"").replace(/deputy director/g,"").replace(/assistant director/g,"");
+  if(/\bchief\b/.test(t)) return "Chief";
+  if(scrub.indexOf("director")>=0) return "Director";
+  if(t.indexOf("deputy director")>=0) return "Deputy Director";
+  if(t.indexOf("senior assistant director")>=0) return "Senior Assistant Director";
+  if(/\bhead\b/.test(t)) return "Head";
+  if(t.indexOf("assistant director")>=0) return "Assistant Director";
+  return null;
+}
+function scoreText(title, blobRaw){
+  const tl=String(title||"").toLowerCase();
+  const blob=(String(blobRaw||"")+" "+tl).toLowerCase();
+  const core=Object.keys(CORE).filter(n=>CORE[n].some(k=>blob.indexOf(k)>=0));
+  const supp=Object.keys(SUPP).filter(n=>SUPP[n].some(k=>blob.indexOf(k)>=0));
+  const cov=(1.5*core.length+supp.length)/(1.5*Object.keys(CORE).length+Object.keys(SUPP).length);
+  let ts=0.15;
+  if(TITLE_DOMAIN.some(k=>tl.indexOf(k)>=0)) ts=1.0;
+  else if(TITLE_ADJACENT.some(k=>tl.indexOf(k)>=0)) ts=0.5;
+  const lvl=detectLevel(title);
+  const ls=TARGET.indexOf(lvl)>=0?1.0:0.0;
+  let pct=100*(0.45*cov+0.35*ts+0.20*ls);
+  const guard=["transformation","process","change","organisational","operational excellence"];
+  if(TITLE_TECH.some(k=>tl.indexOf(k)>=0)&&!guard.some(k=>tl.indexOf(k)>=0)) pct*=0.55;
+  return {pct:Math.round(pct),level:lvl,core:core,supp:supp,
+    missCore:Object.keys(CORE).filter(n=>core.indexOf(n)<0)};
+}
+
+/* ================= INDEXEDDB (guarded, M7) ================= */
+let db=null;
+function openDB(){
+  return new Promise(res=>{
+    try{
+      const rq=indexedDB.open("rolescout",1);
+      rq.onupgradeneeded=e=>{
+        const d=e.target.result;
+        if(!d.objectStoreNames.contains("seen"))    d.createObjectStore("seen",{keyPath:"url"});
+        if(!d.objectStoreNames.contains("tracked")) d.createObjectStore("tracked",{keyPath:"id"});
+      };
+      rq.onsuccess=e=>{db=e.target.result;res(true);};
+      rq.onerror=()=>res(false);
+    }catch(err){res(false);}
+  });
+}
+function idbAll(store){
+  return new Promise(res=>{
+    if(!db||!db.objectStoreNames.contains(store))return res([]);
+    try{
+      const out=[];const c=db.transaction(store).objectStore(store).openCursor();
+      c.onsuccess=e=>{const cur=e.target.result;if(cur){out.push(cur.value);cur.continue();}else res(out);};
+      c.onerror=()=>res([]);
+    }catch(err){res([]);}
+  });
+}
+function idbPut(store,val){
+  return new Promise(res=>{
+    if(!db||!db.objectStoreNames.contains(store))return res(false);
+    try{const t=db.transaction(store,"readwrite");t.objectStore(store).put(val);
+      t.oncomplete=()=>res(true);t.onerror=()=>res(false);}catch(err){res(false);}
+  });
+}
+function idbDel(store,key){
+  return new Promise(res=>{
+    if(!db||!db.objectStoreNames.contains(store))return res(false);
+    try{const t=db.transaction(store,"readwrite");t.objectStore(store).delete(key);
+      t.oncomplete=()=>res(true);t.onerror=()=>res(false);}catch(err){res(false);}
+  });
+}
+
+/* ================= CAREERS@GOV FEED ================= */
+const FEED="https://raw.githubusercontent.com/opengovsg/careersgovsg-jobs-data/main/data/job-listings.json";
+// Optional: your own scraped hospital-cluster feed (see rolescout-scraper README).
+// Set to "" to disable, or e.g. "https://raw.githubusercontent.com/<user>/<repo>/main/data/cluster-jobs.json"
+const CLUSTER_FEED="";
+let ROWS=[], seenSet=new Set(), firstRun=false;
+
+function buildClusterRows(payload){
+  const out=[];
+  for(const j of (payload.jobs||[])){
+    const lvl=detectLevel(j.title||"");
+    if(TARGET.indexOf(lvl)<0) continue;
+    const s=scoreText(j.title, j.jd||"");
+    if((j.jd&&s.core.length<2)) continue;   // with a JD, demand 2+ core hits; title-only rows pass on level+title
+    out.push({pct:s.pct,level:lvl,title:j.title,agency:(j.source||"Cluster")+(j.inst?" · "+j.inst:""),
+      closing:"See posting",ciso:null,core:s.core,url:j.url});
+  }
+  return out;
+}
+
+function fmtClose(ms){
+  if(!ms) return {txt:"No closing date",iso:null};
+  const d=new Date(ms);
+  if(d.getFullYear()>=2100) return {txt:"No closing date",iso:null};
+  return {txt:localDateStr(d),iso:localDateStr(d)};
+}
+function daysTo(iso){
+  if(!iso)return null;
+  const p=iso.split("-"),t=today().split("-");
+  const a=new Date(+p[0],+p[1]-1,+p[2]), b=new Date(+t[0],+t[1]-1,+t[2]);
+  return Math.round((a-b)/86400000);
+}
+function buildRows(data){
+  const out=[];
+  for(const j of data){
+    const title=j.jobTitle||"";
+    const lvl=detectLevel(title);
+    if(TARGET.indexOf(lvl)<0) continue;
+    const blob=[j.functionalArea,j.field,j.jobDescription,j.jobResponsibilities,j.jobRequirements].map(x=>x||"").join(" ");
+    const s=scoreText(title,blob);
+    if(s.core.length<2) continue;
+    const c=fmtClose(j.closingDate);
+    if(c.iso && c.iso<today()) continue;
+    out.push({pct:s.pct,level:lvl,title:title,agency:j.agency||"",closing:c.txt,ciso:c.iso,
+      core:s.core,url:"https://jobs.careers.gov.sg/jobs/"+(j.platform||"hrp")+"/"+j.jobId+"/"+j.postingNo});
+  }
+  out.sort((a,b)=>b.pct-a.pct||((a.ciso||"9999")<(b.ciso||"9999")?-1:1));
+  return out;
+}
+async function loadFeed(){
+  const meta=document.getElementById("feedmeta");
+  meta.textContent="Loading Careers@Gov feed…";
+  try{
+    const res=await fetch(FEED,{cache:"no-store"});
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const data=await res.json();
+    ROWS=buildRows(data);
+    let clusterN=0;
+    if(CLUSTER_FEED){
+      try{
+        const cr=await fetch(CLUSTER_FEED,{cache:"no-store"});
+        if(cr.ok){const crows=buildClusterRows(await cr.json());clusterN=crows.length;
+          ROWS=ROWS.concat(crows);ROWS.sort((a,b)=>b.pct-a.pct||((a.ciso||"9999")<(b.ciso||"9999")?-1:1));}
+      }catch(e2){/* cluster feed optional — never block main feed */}
+    }
+    const seen=await idbAll("seen");
+    seenSet=new Set(seen.map(s=>s.url));
+    firstRun=seenSet.size===0;
+    for(const r of ROWS){ r.isNew=!firstRun&&!seenSet.has(r.url); idbPut("seen",{url:r.url,d:today()}); }
+    meta.textContent="Live · "+data.length.toLocaleString()+" gov roles"+(clusterN?" + "+clusterN+" cluster":"")+" · "+ROWS.length+" target-level matches · "+today();
+    document.getElementById("banner").innerHTML="";
+  }catch(err){
+    meta.textContent="Feed unavailable ("+err.message+")";
+    document.getElementById("banner").innerHTML=
+      '<div class="banner">Couldn\'t reach the Careers@Gov mirror — check connection and tap Refresh. '+
+      'Cached matches (if any) are shown below.</div>';
+  }
+  renderList();
+}
+
+/* ================= MATCHES UI ================= */
+const activeLvls=new Set(TARGET);
+function initChips(){
+  const box=document.getElementById("lvlchips");
+  TARGET.forEach(l=>{
+    const b=document.createElement("button");
+    b.className="chip on";b.textContent=l==="Senior Assistant Director"?"SAD":l;
+    b.onclick=()=>{ if(activeLvls.has(l)){activeLvls.delete(l);b.classList.remove("on");}
+                    else{activeLvls.add(l);b.classList.add("on");} renderList(); };
+    box.appendChild(b);
+  });
+}
+function jobCard(r, tracked){
+  const dd=daysTo(r.ciso);
+  const soon=dd!=null&&dd<=7;
+  const sub=r.ciso?(dd<=0?"closes today":"closes in "+dd+" day"+(dd===1?"":"s")):"rolling";
+  return '<div class="card">'+
+    '<div class="jobtop"><div style="flex:1;min-width:0">'+
+      '<div class="jobtitle"><a href="'+r.url+'" target="_blank" rel="noopener">'+esc(r.title)+'</a>'+(r.isNew?'<span class="badge">NEW</span>':"")+'</div>'+
+      '<div class="meta" style="margin-top:3px">'+esc(r.agency)+'</div></div>'+
+      '<div style="text-align:right;flex-shrink:0"><span class="pct">'+r.pct+'%</span>'+
+      '<div class="meter" style="width:70px;margin-top:4px"><i style="width:'+r.pct+'%"></i></div></div></div>'+
+    '<span class="lvl">'+esc(r.level)+'</span>'+
+    '<div class="close'+(soon?" soon":"")+'">'+esc(r.closing)+' · '+sub+'</div>'+
+    '<div class="fitchips">'+r.core.slice(0,4).map(c=>"<span>"+esc(c)+"</span>").join("")+'</div>'+
+    '<div class="trk-actions"><button class="btn sm '+(tracked?"":"ghost")+'" onclick="trackFeedJob(\''+encodeURIComponent(r.url)+'\')">'+
+      (tracked?"✓ In tracker":"Save to tracker")+'</button></div>'+
+  '</div>';
+}
+let trackedUrls=new Set();
+function renderList(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const min=+document.getElementById("minpct").value;
+  const rows=ROWS.filter(r=>activeLvls.has(r.level)&&r.pct>=min&&
+    (!q||(r.title+" "+r.agency).toLowerCase().indexOf(q)>=0));
+  const el=document.getElementById("list");
+  if(!rows.length){el.innerHTML='<div class="empty">No roles match. Lower the minimum, clear search, or tap Refresh.</div>';return;}
+  el.innerHTML=rows.map(r=>jobCard(r,trackedUrls.has(r.url))).join("");
+}
+window.trackFeedJob=async function(encUrl){
+  const url=decodeURIComponent(encUrl);
+  const r=ROWS.find(x=>x.url===url);
+  if(!r)return;
+  await idbPut("tracked",{id:url,title:r.title,org:r.agency,pct:r.pct,level:r.level,
+    closing:r.closing,url:url,status:"Interested",added:today(),src:"Careers@Gov"});
+  await refreshTracked();
+  renderList(); renderTracker();
+};
+
+/* ================= SCAN JD ================= */
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+document.addEventListener("click",e=>{
+  if(e.target.id==="sc-go"){
+    const title=document.getElementById("sc-title").value.trim();
+    const org=document.getElementById("sc-org").value.trim();
+    const text=document.getElementById("sc-text").value.trim();
+    const out=document.getElementById("sc-out");
+    if(!text&&!title){out.innerHTML='<div class="banner" style="margin-top:10px">Paste a job description (or at least a title) first.</div>';return;}
+    const s=scoreText(title,text);
+    const lvlLine=s.level?(TARGET.indexOf(s.level)>=0?esc(s.level)+" — your target band":esc(s.level)+" — below your SAD/DD target"):"Level not detected from title";
+    out.innerHTML='<div class="scorebox">'+
+      '<div class="row"><span class="pct" style="font-size:24px">'+s.pct+'%</span>'+
+      '<div class="meter"><i style="width:'+s.pct+'%"></i></div></div>'+
+      '<div class="meta" style="margin-top:6px">'+lvlLine+'</div>'+
+      '<label class="f">Matches your profile</label>'+
+      '<div class="fitchips">'+(s.core.concat(s.supp).map(c=>"<span>"+esc(c)+"</span>").join("")||"<span>none detected</span>")+'</div>'+
+      '<label class="f">Not mentioned in this JD</label>'+
+      '<div class="fitchips">'+s.missCore.map(c=>'<span class="miss">'+esc(c)+"</span>").join("")+'</div>'+
+      '<div class="trk-actions"><button class="btn sm" id="sc-save">Save to tracker</button></div>'+
+      '<div class="meta" style="margin-top:8px">Heuristic keyword match — read the JD in full before deciding.</div>'+
+    '</div>';
+    out.dataset.pending=JSON.stringify({title:title||"(untitled role)",org:org||"—",pct:s.pct,level:s.level||"—"});
+  }
+  if(e.target.id==="sc-save"){
+    const out=document.getElementById("sc-out");
+    const p=JSON.parse(out.dataset.pending||"{}");
+    if(!p.title)return;
+    const id="scan-"+Date.now();
+    idbPut("tracked",{id:id,title:p.title,org:p.org,pct:p.pct,level:p.level,closing:"—",
+      url:"",status:"Interested",added:today(),src:"Pasted JD"}).then(()=>{refreshTracked().then(renderTracker);});
+    e.target.textContent="✓ Saved";e.target.disabled=true;
+  }
+  if(e.target.id==="sc-clear"){
+    ["sc-title","sc-org","sc-text"].forEach(i=>document.getElementById(i).value="");
+    document.getElementById("sc-out").innerHTML="";
+  }
+});
+function renderProfile(){
+  const box=document.getElementById("profilebox");
+  box.innerHTML="<b>Core:</b> "+Object.keys(CORE).join(" · ")+"<br><b>Supporting:</b> "+Object.keys(SUPP).join(" · ")+
+    "<br><b>Target levels:</b> Senior Assistant Director · Head · Deputy Director · Director";
+}
+
+/* ================= SOURCES ================= */
+const SOURCES=[
+ ["Careers@Gov (all agencies incl. NCSS, MSF)","Auto-scanned in Matches tab","https://jobs.careers.gov.sg/"],
+ ["SingHealth Mgmt & Admin (SGH, KKH, CGH, SKH, EGH\u2026)","Auto-scanned when scraper feed is on","https://careers.singhealth.com.sg/go/SingHealth-Management-Admin/647544/"],
+ ["NHG Corporate Functions (TTSH, CHI, WH, KTPH, IMH)","Auto-scanned when scraper feed is on","https://careers.nhghealth.com.sg/go/Corporate-Functions/732644/"],
+ ["NUHS Administration (NUH, NTFGH, AH, JCH)","Auto-scanned when scraper feed is on","https://www.nuhscareers.edu.sg/go/Administration/566044/"],
+ ["A*STAR Corporate Careers","Auto-scanned when scraper feed is on","https://careers.a-star.edu.sg/go/Corporate-Careers/748144/"],
+ ["MOH Holdings (healthcare admin talent)","Central healthcare leadership hiring","https://www.mohh.com.sg/career-opportunities"],
+ ["Synapxe (health tech agency)","Digital health transformation roles \u2014 paste JDs into Scan","https://www.synapxe.sg/careers/"],
+ ["Social service sector (via MyCareersFuture)","NCSS retired its portal; SSA jobs post here","https://www.mycareersfuture.gov.sg/search?search=social%20service%20director&sortBy=new_posting_date"],
+ ["SG Enable","Disability sector \u2014 capability & transformation roles","https://www.sgenable.sg/about-us/careers"],
+ ["HTX (Home Team Science & Tech)","Home Team adjacency; transformation & planning","https://www.htx.gov.sg/careers"],
+ ["GovTech","Digital transformation, product ops leadership","https://www.tech.gov.sg/careers/"],
+ ["MyCareersFuture","Cross-check: 'transformation director'","https://www.mycareersfuture.gov.sg/search?search=transformation%20director&sortBy=new_posting_date"],
+ ["LinkedIn Jobs SG","Set alerts: 'transformation' + Deputy Director","https://www.linkedin.com/jobs/search/?keywords=transformation%20deputy%20director&location=Singapore"]
+];
+function renderSources(){
+  document.getElementById("srclist").innerHTML=SOURCES.map(s=>
+    '<div class="srcrow"><div style="min-width:0"><div class="srcname">'+esc(s[0])+'</div>'+
+    '<div class="srcnote">'+esc(s[1])+'</div></div>'+
+    '<a class="btn sm ghost" href="'+s[2]+'" target="_blank" rel="noopener">Open</a></div>').join("");
+}
+
+/* ================= TRACKER ================= */
+let TRACKED=[];
+async function refreshTracked(){
+  TRACKED=await idbAll("tracked");
+  trackedUrls=new Set(TRACKED.map(t=>t.id));
+}
+const STATUSES=["Interested","Applied","Interview","Offer","Closed / rejected"];
+function renderTracker(){
+  const el=document.getElementById("trklist");
+  if(!TRACKED.length){el.innerHTML='<div class="empty">Nothing saved yet. Save roles from Matches or Scan JD.</div>';return;}
+  const order={"Interview":0,"Applied":1,"Offer":2,"Interested":3,"Closed / rejected":4};
+  const rows=TRACKED.slice().sort((a,b)=>(order[a.status]??9)-(order[b.status]??9));
+  el.innerHTML=rows.map(t=>'<div class="card">'+
+    '<div class="jobtop"><div style="flex:1;min-width:0">'+
+    '<div class="jobtitle">'+(t.url?'<a href="'+t.url+'" target="_blank" rel="noopener">'+esc(t.title)+'</a>':esc(t.title))+'</div>'+
+    '<div class="meta" style="margin-top:3px">'+esc(t.org)+' · '+esc(t.src)+' · added '+esc(t.added)+'</div></div>'+
+    '<span class="pct" style="flex-shrink:0">'+t.pct+'%</span></div>'+
+    '<span class="lvl">'+esc(t.level)+'</span><span class="meta"> closing: '+esc(t.closing)+'</span>'+
+    '<div class="trk-actions">'+
+      '<select class="statussel" onchange="setStatus(\''+encodeURIComponent(t.id)+'\',this.value)">'+
+        STATUSES.map(s=>'<option'+(s===t.status?" selected":"")+'>'+s+'</option>').join("")+'</select>'+
+      '<button class="btn sm ghost" onclick="delTracked(\''+encodeURIComponent(t.id)+'\')">Remove</button>'+
+    '</div></div>').join("");
+}
+window.setStatus=async function(encId,val){
+  const id=decodeURIComponent(encId);
+  const t=TRACKED.find(x=>x.id===id); if(!t)return;
+  t.status=val; await idbPut("tracked",t); renderTracker();
+};
+window.delTracked=async function(encId){
+  const id=decodeURIComponent(encId);
+  await idbDel("tracked",id); await refreshTracked(); renderTracker(); renderList();
+};
+
+/* ================= NAV + INIT ================= */
+document.querySelectorAll("nav button").forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll("nav button").forEach(x=>x.classList.remove("on"));
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+    document.getElementById("tab-"+b.dataset.tab).classList.add("on");
+    document.getElementById("main").scrollTop=0;
+  };
+});
+document.getElementById("q").addEventListener("input",renderList);
+document.getElementById("minpct").addEventListener("input",e=>{
+  document.getElementById("minpctv").textContent=e.target.value+"%";renderList();
+});
+document.getElementById("refresh").addEventListener("click",loadFeed);
+
+(async function init(){
+  initChips(); renderProfile(); renderSources();
+  await openDB();
+  await refreshTracked();
+  renderTracker();
+  loadFeed();
+})();
+</script>
+</body>
+</html>
