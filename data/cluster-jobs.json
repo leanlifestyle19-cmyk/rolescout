@@ -138,18 +138,18 @@
    "jd": ""
   },
   {
-   "id": "18930444",
-   "title": "Associate Principal/Senior/Analyst, Data Science, Group Finance Analytics",
-   "inst": "SHHQ",
-   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Associate-PrincipalSeniorAnalyst%2C-Data-Science%2C-Group-Finance-Analytics-Sing/18930444/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
    "id": "36418944",
    "title": "Senior Accountant / Assistant Manager, Finance",
    "inst": "SKH",
    "url": "https://careers.singhealth.com.sg/SKH/job/Singapore-Senior-Accountant-Assistant-Manager%2C-Finance-Sing/36418944/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
+   "id": "18930444",
+   "title": "Associate Principal/Senior/Analyst, Data Science, Group Finance Analytics",
+   "inst": "SHHQ",
+   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Associate-PrincipalSeniorAnalyst%2C-Data-Science%2C-Group-Finance-Analytics-Sing/18930444/",
    "source": "SingHealth",
    "jd": ""
   },
@@ -194,14 +194,6 @@
    "jd": ""
   },
   {
-   "id": "57770744",
-   "title": "Senior / Assistant Manager, (Partnerships & Programmes), Office for Innovation",
-   "inst": "SHHQ",
-   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Senior-Assistant-Manager%2C-%28Partnerships-&amp;-Programmes%29%2C-Office-for-Innovation-Sing/57770744/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
    "id": "57759244",
    "title": "Senior / Assistant Manager, Organisation Planning and Performance",
    "inst": "NCCS",
@@ -210,10 +202,34 @@
    "jd": ""
   },
   {
+   "id": "57770744",
+   "title": "Senior / Assistant Manager, (Partnerships & Programmes), Office for Innovation",
+   "inst": "SHHQ",
+   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Senior-Assistant-Manager%2C-%28Partnerships-&amp;-Programmes%29%2C-Office-for-Innovation-Sing/57770744/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
+   "id": "34444244",
+   "title": "Associate Executive, Patient Management Information Services",
+   "inst": "SHHQ",
+   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Associate-Executive%2C-Patient-Management-Information-Services-Sing/34444244/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
    "id": "54954344",
    "title": "Senior/ Associate Executive SingHealth Residency (Post Grad Year 1) (2-year Contract)",
    "inst": "SHHQ",
    "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Senior-Associate-Executive-SingHealth-Residency-%28Post-Grad-Year-1%29-%282-year-Contract%29-Sing/54954344/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
+   "id": "55599844",
+   "title": "Senior Executive/ Assistant Manager, Office of Patient Safety & Quality",
+   "inst": "SCH",
+   "url": "https://careers.singhealth.com.sg/SCH/job/Singapore-Senior-Executive-Assistant-Manager%2C-Office-of-Patient-Safety-&amp;-Quality-Sing/55599844/",
    "source": "SingHealth",
    "jd": ""
   },
@@ -230,22 +246,6 @@
    "title": "Manager, A.L.I.C.E @ SGH Campus (Contract)",
    "inst": "SHHQ",
    "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Manager%2C-A_L_I_C_E-%40-SGH-Campus-%28Contract%29-Sing/41122344/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
-   "id": "55599844",
-   "title": "Senior Executive/ Assistant Manager, Office of Patient Safety & Quality",
-   "inst": "SCH",
-   "url": "https://careers.singhealth.com.sg/SCH/job/Singapore-Senior-Executive-Assistant-Manager%2C-Office-of-Patient-Safety-&amp;-Quality-Sing/55599844/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
-   "id": "34444244",
-   "title": "Associate Executive, Patient Management Information Services",
-   "inst": "SHHQ",
-   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Associate-Executive%2C-Patient-Management-Information-Services-Sing/34444244/",
    "source": "SingHealth",
    "jd": ""
   },
@@ -274,14 +274,6 @@
    "jd": ""
   },
   {
-   "id": "57695444",
-   "title": "Senior Associate Executive (Support and Patient Operations), EGH Planning Office",
-   "inst": "EGH",
-   "url": "https://careers.singhealth.com.sg/EGH/job/Singapore-Senior-Associate-Executive-%28Support-and-Patient-Operations%29%2C-EGH-Planning-Office-Sing/57695444/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
    "id": "57695544",
    "title": "Data Analyst, Management Information",
    "inst": "SKH",
@@ -290,10 +282,26 @@
    "jd": ""
   },
   {
+   "id": "57695444",
+   "title": "Senior Associate Executive (Support and Patient Operations), EGH Planning Office",
+   "inst": "EGH",
+   "url": "https://careers.singhealth.com.sg/EGH/job/Singapore-Senior-Associate-Executive-%28Support-and-Patient-Operations%29%2C-EGH-Planning-Office-Sing/57695444/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
    "id": "42045844",
    "title": "Executive, Human Resource",
    "inst": "NHCS",
    "url": "https://careers.singhealth.com.sg/NHCS/job/Singapore-Executive%2C-Human-Resource-Sing/42045844/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
+   "id": "56706844",
+   "title": "Executive/Senior Executive (ESS), Quality Assurance & Risk Management",
+   "inst": "NHCS",
+   "url": "https://careers.singhealth.com.sg/NHCS/job/Singapore-ExecutiveSenior-Executive-%28ESS%29%2C-Quality-Assurance-&amp;-Risk-Management-Sing/56706844/",
    "source": "SingHealth",
    "jd": ""
   },
@@ -318,14 +326,6 @@
    "title": "Senior Executive (Operational Technology - Projects and Operations), EGH Planning Office",
    "inst": "EGH",
    "url": "https://careers.singhealth.com.sg/EGH/job/Singapore-Senior-Executive-%28Operational-Technology-Projects-and-Operations%29%2C-EGH-Planning-Office-Sing/53806644/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
-   "id": "56706844",
-   "title": "Executive/Senior Executive (ESS), Quality Assurance & Risk Management",
-   "inst": "NHCS",
-   "url": "https://careers.singhealth.com.sg/NHCS/job/Singapore-ExecutiveSenior-Executive-%28ESS%29%2C-Quality-Assurance-&amp;-Risk-Management-Sing/56706844/",
    "source": "SingHealth",
    "jd": ""
   },
@@ -746,22 +746,6 @@
    "jd": ""
   },
   {
-   "id": "54510844",
-   "title": "Assistant Manager, Office of Research Integrity & Compliance",
-   "inst": "SHHQ",
-   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Assistant-Manager%2C-Office-of-Research-Integrity-&amp;-Compliance-Sing/54510844/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
-   "id": "49829844",
-   "title": "Manager / Senior Manager (Patient Safety and Quality)",
-   "inst": "NCCS",
-   "url": "https://careers.singhealth.com.sg/NCCS/job/Singapore-Manager-Senior-Manager-%28Patient-Safety-and-Quality%29-Sing/49829844/",
-   "source": "SingHealth",
-   "jd": ""
-  },
-  {
    "id": "52076544",
    "title": "Senior Accountant / Assistant Manager, Finance (B2B & Budgeting)",
    "inst": "SKH",
@@ -770,10 +754,26 @@
    "jd": ""
   },
   {
+   "id": "54510844",
+   "title": "Assistant Manager, Office of Research Integrity & Compliance",
+   "inst": "SHHQ",
+   "url": "https://careers.singhealth.com.sg/SHHQ/job/Singapore-Assistant-Manager%2C-Office-of-Research-Integrity-&amp;-Compliance-Sing/54510844/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
    "id": "33166044",
    "title": "Manager/Senior Manager, National Heart Research Institute Singapore (Ref:NHCS/M/D)",
    "inst": "NHCS",
    "url": "https://careers.singhealth.com.sg/NHCS/job/Singapore-ManagerSenior-Manager%2C-National-Heart-Research-Institute-Singapore-%28RefNHCSMD%29-Sing/33166044/",
+   "source": "SingHealth",
+   "jd": ""
+  },
+  {
+   "id": "49829844",
+   "title": "Manager / Senior Manager (Patient Safety and Quality)",
+   "inst": "NCCS",
+   "url": "https://careers.singhealth.com.sg/NCCS/job/Singapore-Manager-Senior-Manager-%28Patient-Safety-and-Quality%29-Sing/49829844/",
    "source": "SingHealth",
    "jd": ""
   },
@@ -1922,18 +1922,18 @@
    "jd": ""
   },
   {
-   "id": "56844844",
-   "title": "Senior Executive, Medical Affairs (NUHS@Home)",
-   "inst": "",
-   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-Executive%2C-Medical-Affairs-%28NUHS%40Home%29-119228/56844844/",
-   "source": "NUHS",
-   "jd": ""
-  },
-  {
    "id": "55919944",
    "title": "Senior/ Manager, Service and Operations (Transformation)",
    "inst": "",
    "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-Manager%2C-Service-and-Operations-%28Transformation%29-609606/55919944/",
+   "source": "NUHS",
+   "jd": ""
+  },
+  {
+   "id": "56844844",
+   "title": "Senior Executive, Medical Affairs (NUHS@Home)",
+   "inst": "",
+   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-Executive%2C-Medical-Affairs-%28NUHS%40Home%29-119228/56844844/",
    "source": "NUHS",
    "jd": ""
   },
@@ -2226,6 +2226,14 @@
    "jd": "Manager, AIO Head (2 years contract) Job Details | NUHS Skip to main content Home Corporate Profile About NUHS Vision, Mission, Purpose & Values Our People Our Pride Our Culture Employer Awards Opportunities@NUHS Career Opportunities Sponsorship Opportunities Join Our Talent Community Search By Keyword Clear Search Home Corporate Profile About NUHS Vision, Mission, Purpose & Values Our People Our Pride Our Culture Employer Awards Opportunities@NUHS Career Opportunities Sponsorship Opportunities Join Our Talent Community View My Profile Search By Keyword Show More Filters Loading... Institution All Job Function All Job ID All Employment Type All Clear Search Select how often (in days) to receive an alert: Create Alert × Select how often (in days) to receive an alert: Apply now » Manager, AIO Head (2 years contract) Job ID: 10180 Job Function: Administration Institution: National University Health System Description: The role will support a digital health workstream under the Singapore Medical Foundation AI Model Programme (SIMFONI), a national initiative aimed at accelerating AI-driven solutions within Singapore’s public healthcare system. This role will lead the project management and delivery of a CDSS workstream within Singapore’s public healthcare system, focusing on rule-based clinical logic, requirements gathering, working with IT teams on system development, user acceptance testing, and proof-of-concept pilot implementation in polyclinics. The role will work closely with the Principal Investigator from MOHT, clinicians, medical informatics stakeholders, developers, engineers, and public healthcare institutions to ensure that requirements are appropriately gathered, translated into product specifications, developed, tested, and deployed. Responsibilities: Drive overall delivery of the CDSS workstream, ensuring alignment with programme objectives, timelines, and milestones Lead stakeholder engagement and alignment across public healthcare clusters, MOHT, clinicians, and medical informatics teams Work closely with the Principal Investigator (MOHT) on strategic direction, planning, and execution of the workstream Oversee end-to-end product development lifecycle, including requirements definition, system development, testing, and deployment Provide direction to delivery teams working with developers, engineers, and data teams to ensure requirements are accurately translated into system functionality Work with MOHT and technical partners to coordinate integration with national healthcare systems (e.g. NGEMR, NeHR, data platforms), ensuring alignment of requirements, timelines, and dependencies Oversee user acceptance testing (UAT), ensuring validation of outputs against clinical and functional requirements Provide oversight and direction on implementation strategies, including proof-of-concept (POC) pilot deployments in polyclinics Ensure readiness for deployment, including stakeholder alignment, workflow integration, and operational feasibility Monitor progress, risks, issues, and dependencies across the workstream, and report updates to governance stakeholders Guide iterative improvements based on feedback from clinical users and pilot implementations Lead and manage the delivery team providing direction on priorities, execution, and issue resolution Requirements: Bachelor’s degree in Healthcare, Information Systems, Business, Public Health, Biomedical Sciences, Life Sciences, or related disciplines. At least 8–12 years of experience in project/programme management, product development, or digital health delivery Experience in public healthcare or multi-institutional environments preferred Strong experience leading delivery teams and overseeing complex programmes Strong stakeholder management across clinical, technical, and policy domains Experience working with developers, engineers, or system implementation teams Ability to understand clinical workflows and translate into product strategy and delivery direction Strong communication, facilitation, and leadership skills Apply now » Find similar jobs: Administration Corporate Site View All Jobs Contact Us Opens in a new tab. Opens in a new tab. Opens in a new tab. Copyright © 2021 National University Health System. All Rights Reserved."
   },
   {
+   "id": "57513544",
+   "title": "Senior Executive (Data Engineer), AIO Management Decision Support Office",
+   "inst": "",
+   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-Executive-%28Data-Engineer%29%2C-AIO-Management-Decision-Support-Office-119228/57513544/",
+   "source": "NUHS",
+   "jd": ""
+  },
+  {
    "id": "57492844",
    "title": "Manager, TGCH HR (Medical)",
    "inst": "",
@@ -2238,14 +2246,6 @@
    "title": "Assistant Manager, AIO Innovation Office (1 year contract)",
    "inst": "",
    "url": "https://www.nuhscareers.edu.sg/job/Singapore-Assistant-Manager%2C-AIO-Innovation-Office-%281-year-contract%29-119228/57514144/",
-   "source": "NUHS",
-   "jd": ""
-  },
-  {
-   "id": "57513544",
-   "title": "Senior Executive (Data Engineer), AIO Management Decision Support Office",
-   "inst": "",
-   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-Executive-%28Data-Engineer%29%2C-AIO-Management-Decision-Support-Office-119228/57513544/",
    "source": "NUHS",
    "jd": ""
   },
@@ -2402,18 +2402,18 @@
    "jd": ""
   },
   {
-   "id": "57335144",
-   "title": "Snr / Assistant Manager, Office of Campus Planning (3-year contract)",
-   "inst": "",
-   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Snr-Assistant-Manager%2C-Office-of-Campus-Planning-%283-year-contract%29-159964/57335144/",
-   "source": "NUHS",
-   "jd": ""
-  },
-  {
    "id": "57328144",
    "title": "Senior Executive/Assistant Manager (Data Analytics Engineer), AIO Innovation Office (Contract)",
    "inst": "",
    "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-ExecutiveAssistant-Manager-%28Data-Analytics-Engineer%29%2C-AIO-Innovation-Office-%28Contract%29-119228/57328144/",
+   "source": "NUHS",
+   "jd": ""
+  },
+  {
+   "id": "57335144",
+   "title": "Snr / Assistant Manager, Office of Campus Planning (3-year contract)",
+   "inst": "",
+   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Snr-Assistant-Manager%2C-Office-of-Campus-Planning-%283-year-contract%29-159964/57335144/",
    "source": "NUHS",
    "jd": ""
   },
@@ -2602,14 +2602,6 @@
    "jd": ""
   },
   {
-   "id": "29444744",
-   "title": "Senior Manager/Manager, Clinical Operations",
-   "inst": "",
-   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-ManagerManager%2C-Clinical-Operations-119228/29444744/",
-   "source": "NUHS",
-   "jd": ""
-  },
-  {
    "id": "33318944",
    "title": "Senior Assistant Manager, Medical Affairs (Medicolegal)",
    "inst": "",
@@ -2622,6 +2614,14 @@
    "title": "Senior/Executive, NCIS, Hospital Cancer Registry (2-year contract)",
    "inst": "",
    "url": "https://www.nuhscareers.edu.sg/job/Singapore-SeniorExecutive%2C-NCIS%2C-Hospital-Cancer-Registry-%282-year-contract%29-119074/42678444/",
+   "source": "NUHS",
+   "jd": ""
+  },
+  {
+   "id": "29444744",
+   "title": "Senior Manager/Manager, Clinical Operations",
+   "inst": "",
+   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Senior-ManagerManager%2C-Clinical-Operations-119228/29444744/",
    "source": "NUHS",
    "jd": ""
   },
@@ -2650,10 +2650,10 @@
    "jd": ""
   },
   {
-   "id": "52990244",
-   "title": "Snr / Assistant Manager, Housekeeping",
+   "id": "56183944",
+   "title": "Sr Asst Manager/Manager, Dept of Surgery (National University Centre for Trauma, 2-Year Contract)",
    "inst": "",
-   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Snr-Assistant-Manager%2C-Housekeeping-159964/52990244/",
+   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Sr-Asst-ManagerManager%2C-Dept-of-Surgery-%28National-University-Centre-for-Trauma%2C-2-Year-Contract%29-119074/56183944/",
    "source": "NUHS",
    "jd": ""
   },
@@ -2666,10 +2666,10 @@
    "jd": ""
   },
   {
-   "id": "56183944",
-   "title": "Sr Asst Manager/Manager, Dept of Surgery (National University Centre for Trauma, 2-Year Contract)",
+   "id": "52990244",
+   "title": "Snr / Assistant Manager, Housekeeping",
    "inst": "",
-   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Sr-Asst-ManagerManager%2C-Dept-of-Surgery-%28National-University-Centre-for-Trauma%2C-2-Year-Contract%29-119074/56183944/",
+   "url": "https://www.nuhscareers.edu.sg/job/Singapore-Snr-Assistant-Manager%2C-Housekeeping-159964/52990244/",
    "source": "NUHS",
    "jd": ""
   },
